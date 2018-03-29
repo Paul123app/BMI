@@ -48,20 +48,26 @@ btn_help.setOnClickListener(new View.OnClickListener() {
     public void BMI(View view) {
         float w = Float.parseFloat(ed_weight.getText().toString());
         float h = Float.parseFloat(ed_height.getText().toString());
-        float bmi = w / (h*h);
-        Log.d("BMI", String.valueOf(bmi));
-        Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG).show();
+        Bundle bag = new Bundle();
+        bag.putFloat("WEIGHT",w);
+        bag.putFloat("HEIGHT",h);
 
-        new AlertDialog.Builder(this)
-                .setMessage("BMI="+bmi)
-                .setTitle("BMI值")
-                .setPositiveButton("ok", null)
-                .setPositiveButton("cancel", null)
-                .show();
+        //float bmi = w / (h*h);
+        //Log.d("BMI", String.valueOf(bmi));
+        //Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG).show();
+
+        //new AlertDialog.Builder(this)
+                //.setMessage("BMI="+bmi)
+                //.setTitle("BMI值")
+                //.setPositiveButton("ok", null)
+                //.setPositiveButton("cancel", null)
+                //.show();
 
         Intent intent=new Intent(this,ResultActivity.class);
-        intent.putExtra("EX_BMI",bmi);
+        intent.putExtras(bag);
+        //intent.putExtra("EX_BMI",bmi);
         startActivity(intent);
+
 
 
     }
