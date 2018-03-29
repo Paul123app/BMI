@@ -1,6 +1,8 @@
 package com.example.cjcu.bmi;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +34,8 @@ btn_help.setOnClickListener(new View.OnClickListener() {
                 .show();
     }
 });
+
+
     }
 
     private void FindViews() {
@@ -54,5 +58,11 @@ btn_help.setOnClickListener(new View.OnClickListener() {
                 .setPositiveButton("ok", null)
                 .setPositiveButton("cancel", null)
                 .show();
+
+        Intent intent=new Intent(this,ResultActivity.class);
+        intent.putExtra("EX_BMI",bmi);
+        startActivity(intent);
+
+
     }
 }
